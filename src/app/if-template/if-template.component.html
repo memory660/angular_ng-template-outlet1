@@ -1,0 +1,26 @@
+<p>if-template works!</p>
+
+
+
+<ul>
+  <li *ngFor="let link of links">
+    <a *ngIf="link.internal; else externalLink" [routerLink]="link.url">
+      <ng-container
+      *ngTemplateOutlet="linkLayout;context:{ link: link }"
+      ></ng-container>
+    </a>
+
+    <ng-template #externalLink>
+      <a [attr.href]="link.url">
+        <ng-container
+        *ngTemplateOutlet="linkLayout;context:{ link: link }"
+        ></ng-container>
+      </a>
+    </ng-template>
+  </li>
+</ul>
+
+<ng-template #linkLayout let-link="link">
+  <img src="/assets/icon.svg" alt="" />
+  <span>{{ link.display }}</span>
+</ng-template>

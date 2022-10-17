@@ -1,0 +1,13 @@
+<button mat-raised-button color="accent" (click)="embed()">
+  Embed Template
+</button>
+
+<ng-container #myContainer></ng-container>
+<ng-template #myTemplate>
+  <p>I'm an embedded view! Yay!</p>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="firstTemplate"></ng-container>
+<ng-template #firstTemplate>
+  <p>I was here first!</p>
+</ng-template>

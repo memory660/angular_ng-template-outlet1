@@ -1,0 +1,57 @@
+<main>
+  <h1>List component</h1>
+
+  <app-list [data]="productList" [itemTemplate]="customItemTemplate"></app-list>
+
+  <ng-template #customItemTemplate let-item let-message1="message">
+    <div
+      style="display: flex; justify-content: space-between; padding: 0.5rem 0"
+    >
+      <span>
+        {{ item.id }} - <b>{{ item.name }}</b>
+      </span>
+      <mark>Stars: {{ item.rating }}</mark>
+    </div>
+    <hr />
+    <div>message = {{ message1 }}</div>
+  </ng-template>
+
+  <!--
+  <h1>Card component (string)</h1>
+  <app-card [title]="'Hello there'">
+    <p>i'm an awesome card.</p>
+  </app-card>
+  -->
+
+  <h1>Card component (templateRef)</h1>
+  <app-card [title]="title">
+    <ng-template #title> <h2>Hello there</h2> </ng-template>
+    <p>i'm an awesome card.</p>
+  </app-card>
+</main>
+
+<hr />
+<hr />
+
+<app-directive-conditionnal></app-directive-conditionnal>
+
+<hr />
+<hr />
+
+<h2>Customising a Dropdown Selector</h2>
+<a href="https://stackblitz.com/edit/ngtemplateoutletcontext">stackblitz</a
+><br />
+<br />
+<br />
+<app-client1></app-client1>
+<app-client2></app-client2>
+
+<hr />
+<hr />
+
+
+<app-if-template></app-if-template>
+
+<hr />
+<hr />
+
