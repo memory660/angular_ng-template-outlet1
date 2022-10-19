@@ -1,0 +1,10 @@
+<p>menu works!</p>
+
+<button (click)="open = !open"> {{ open ? 'Close' : 'Open' }} </button>
+
+<div *ngIf="open">
+  <div [ngTemplateOutlet]="templateRef"></div>
+</div>
+
+
+

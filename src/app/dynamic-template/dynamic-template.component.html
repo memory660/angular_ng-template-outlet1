@@ -1,0 +1,73 @@
+<p>dynamic-template works!</p>
+
+
+<div style="background: floralwhite">
+  <ng-template #templateRef let-label="label" let-url="url">
+    <div>
+      <a href="{{ url }}">{{ label }}</a>
+    </div>
+  </ng-template>
+
+  <ng-template #templateRef2 let-label="label" let-url="url">
+    <div style="background-color: #eee; border: 1px solid #000">
+      <p><b>Name:</b> {{ label }}</p>
+      <p>
+        <b>Url:</b> <a href="{{ url }}">{{ label }}</a>
+      </p>
+    </div>
+  </ng-template>
+
+  <p>
+    <button (click)="default = !default">Change template</button>
+  </p>
+
+  <div
+    [ngTemplateOutlet]="default ? templateRef : templateRef2"
+    [ngTemplateOutletContext]="menu[0]"
+  ></div>
+  <div
+    [ngTemplateOutlet]="default ? templateRef : templateRef2"
+    [ngTemplateOutletContext]="menu[1]"
+  ></div>
+
+  <p>Or with <code>*ngTemplateOutlet</code></p>
+  <ng-container *ngTemplateOutlet="templateRef; context: menu[0]"></ng-container>
+  <div *ngTemplateOutlet="templateRef; context: menu[1]"></div>
+</div>
+
+
+<div style="background: burlywood">
+  <h2>Menu</h2>
+
+  <app-menu>
+    <ng-template>
+      <app-sub-menu [label]="menu[1]['label']"></app-sub-menu>
+      <app-sub-menu [label]="menu[0]['label']"></app-sub-menu>
+    </ng-template>
+  </app-menu>
+
+  <app-menu>
+    <ng-template>
+      <ul>
+        <li>111</li>
+        <li>2222</li>
+      </ul>
+    </ng-template>
+  </app-menu>
+</div>
+
+
+
+<div style="background: burlywood">
+  <h2>TemplateRef</h2>
+  <app-list-d [list]="list" #wrapper (itemAdd)="addNewItem()">
+    <ng-template>
+      <ul>
+        <li *ngFor="let item of list; let i = index">
+          {{ item }}
+          <button (click)="wrapper.removeItem(i)">&times;</button>
+        </li>
+      </ul>
+    </ng-template>
+  </app-list-d>
+</div>

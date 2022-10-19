@@ -15,6 +15,10 @@ import { Client2Component } from "./custom-dropdown/client2/client2.component";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IfTemplateComponent } from './if-template/if-template.component';
 import { RouterModule } from '@angular/router';
+import { DynamicTemplateComponent } from './dynamic-template/dynamic-template.component';
+import { SubMenuComponent } from './dynamic-template/components/sub-menu/sub-menu.component';
+import { ListDComponent } from './dynamic-template/components/list-d/list-d.component';
+import { MenuComponent } from './dynamic-template/components/menu/menu.component';
 
 
 @NgModule({
@@ -28,6 +32,11 @@ import { RouterModule } from '@angular/router';
     Client1Component,
     Client2Component,
     IfTemplateComponent,
+    DynamicTemplateComponent,
+
+    SubMenuComponent,
+     ListDComponent,
+     MenuComponent,
 
 
   ],
